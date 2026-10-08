@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management</title>
+</head>
+<body>
+
+    <h2>Employee Management System</h2>
+
+    {% if employee %}
+        <h3>Edit Employee</h3>
+        <form method="POST">
+    {% else %}
+        <h3>Add Employee</h3>
+        <form method="POST">
+    {% endif %}
+
+        <label>Name:</label><br>
+        <input type="text" name="name"
+               value="{{ employee.name if employee else '' }}"
+               required>
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email"
+               value="{{ employee.email if employee else '' }}"
+               required>
+        <br><br>
+
+        <label>Phone:</label><br>
+        <input type="tel" name="phone"
+               value="{{ employee.phone if employee else '' }}"
+               required>
+        <br><br>
+
+        <label>Department:</label><br>
+        <input type="text" name="department"
+               value="{{ employee.department if employee else '' }}"
+               required>
+        <br><br>
+
+        <label>Position:</label><br>
+        <input type="text" name="position"
+               value="{{ employee.position if employee else '' }}"
+               required>
+        <br><br>
+
+        <button type="submit">
+            {% if employee %}Update Employee{% else %}Add Employee{% endif %}
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
